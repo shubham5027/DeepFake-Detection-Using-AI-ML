@@ -1,0 +1,151 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 33% 99%;
+    --foreground: 220 33% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 33% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 33% 10%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 33% 20%;
+
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 210 20% 96%;
+    --accent-foreground: 220 33% 20%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 220 33% 5%;
+    --foreground: 220 10% 98%;
+
+    --card: 220 33% 8%;
+    --card-foreground: 220 10% 98%;
+
+    --popover: 220 33% 8%;
+    --popover-foreground: 220 10% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 33% 15%;
+    --secondary-foreground: 220 10% 98%;
+
+    --muted: 220 33% 15%;
+    --muted-foreground: 220 10% 70%;
+
+    --accent: 220 33% 15%;
+    --accent-foreground: 220 10% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 33% 15%;
+    --input: 220 33% 15%;
+    --ring: 210 100% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  h1 {
+    @apply text-3xl sm:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-1.5;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+  
+  /* Subtle animations */
+  .transition-all-200 {
+    @apply transition-all duration-200;
+  }
+  
+  .transition-transform-300 {
+    @apply transition-transform duration-300;
+  }
+  
+  /* Progress bar animation */
+  .progress-bar {
+    @apply h-1 w-full bg-secondary overflow-hidden rounded-full;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full bg-primary animate-progress-fill;
+  }
+
+  /* Page transitions */
+  .page-enter {
+    @apply opacity-0;
+  }
+  
+  .page-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-exit {
+    @apply opacity-100;
+  }
+  
+  .page-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+}
